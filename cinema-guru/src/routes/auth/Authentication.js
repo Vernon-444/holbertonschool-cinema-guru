@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react';
+import axios from 'axios';
 
 // import login and register components
 import Login from './Login';
@@ -17,9 +18,68 @@ const Authentication = ({ setIsLoggedIn, setUserUsername }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    /**
+     * @function handleSubmit
+     * takes the onSubmit event as parameter
+     * use the preventDefault event to disable the default behavior of the form
+     *
+     * Depending on the _swith state:
+     *     - true: using axios send a post request to /api/auth/login route with username and password from the component state as body data
+     *    - false: using axios send a post request to /api/auth/register route with username and password from the component state as body data
+     *
+     * onSuccess we will get a response containing a jwt access token.
+     * Store the token in the localStorage
+     * Set the userUsername state to true
+     *
+     * Bind the handleSubmit function to the form onSubmit event
+     */
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (_switch) {
+            // login
+            // using axios send a post request to /api/auth/login route with username and password from the component state as body data
+            axios.post('/api/auth/login', {
+                username: username,
+                password: password
+            })
+                .then((response) => {
+                    // onSuccess we will get a response containing a jwt access token.
+                    // Store the token in the localStorage
+                    localStorage.setItem('token', response.data.token);
+                    // Set the userUsername state to true
+                    setUserUsername(true);
+                    // log to console
+                    console.log("Logged in!");
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        } else {
+            // register
+            // using axios send a post request to /api/auth/register route with username and password from the component state as body data
+            axios.post('/api/auth/register', {
+                username: username,
+                password: password
+            })
+                .then((response) => {
+                    // onSuccess we will get a response containing a jwt access token.
+                    // Store the token in the localStorage
+                    localStorage.setItem('token', response.data.token);
+                    // Set the userUsername state to true
+                    setUserUsername(true);
+                    // log to console
+                    console.log("Registered user!");
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+};
+
+
     return (
         //  render the Login component whenever _switch is true otherwise render Register
-        <form className="auth">
+        <form className="auth" onSubmit={handleSubmit}>
             <div className="auth-buttons">
                 <Button
                     label="Sign In"
