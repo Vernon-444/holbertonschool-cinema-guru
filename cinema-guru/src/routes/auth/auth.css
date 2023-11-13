@@ -1,0 +1,75 @@
+@import '../../App.css';
+
+.light-red {
+    background-color: var(--color-light-red) !important;
+}
+
+.dark-red {
+    background-color: var(--color-dark-red) !important;
+}
+
+Authentication {
+    place-self: center;
+}
+
+form {
+    width: 50%;
+    max-width: 450px;
+}
+
+form > .login {
+    display: flex;
+    flex-direction: column;
+}
+
+form > .login > p {
+    font-size: 19px;
+    align-self: center;
+    color: #1c1c1c;
+
+}
+
+/* AUTH BUTTONS */
+form > auth-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+form Button {
+    margin: 0;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 50%;
+}
+
+/* LOGIN */
+.login {
+    background-color: white;
+}
+
+.login .icon-label {
+    margin: 5px;
+}
+
+.login .icon-label svg {
+    color: gray;
+}
+
+.login label {
+    color: #1C1C1C;
+}
+
+.login Input {
+    background-color: white;
+    margin: 5px;
+}
+
+.login-button {
+    align-self: flex-end;
+    margin: 10px;
+}
+
+.login .input-container {
+    padding-left: 10%;
+    padding-right: 10%;
+}
