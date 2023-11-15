@@ -1,0 +1,50 @@
+@import '../../App.css';
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--color-black);
+}
+
+nav p {
+    color: var(--color-light);
+}
+
+nav > p {
+    margin-left: 10px;
+}
+
+nav img {
+    border-radius: 5rem;
+    border: 1px solid var(--color-light-red);
+    height: 2em;
+    margin-right: 10px;
+}
+
+nav span p,
+nav span svg {
+    color: var(--color-dark-red);
+}
+
+nav .right-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+nav .right-section p {
+    margin-right: 10px;
+}
+
+nav .right-section FontAwesomeIcon {
+    margin-right: 10px;
+}
+
+nav .right-section span {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
