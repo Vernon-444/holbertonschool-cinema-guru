@@ -1,0 +1,12 @@
+@import '../../App.css';
+
+tag li {
+    border: 1px solid var(--color-light-red);
+    border-radius: 5rem;
+    color: var(--color-white);
+    background-color: var(--color-black);
+}
+
+tag li.selected {
+    background-color: var(--color-light-red);
+}
